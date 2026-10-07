@@ -2,24 +2,119 @@
    Base
 ========================= */
 
-body {
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-
-a {
-  color: inherit;
-}
-
-* {
-  box-sizing: border-box;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+   Navigation
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 76px;
+
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.navbar nav a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 76px;
+  padding: 0 22px;
+
+  color: #f8f8f8;
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Hover background */
+.navbar nav a:hover {
+  color: tomato;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tomato underline */
+.navbar nav a::after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 3px;
+
+  background: tomato;
+
+  transform: translateX(-50%);
+
+  transition: width 0.25s ease;
+}
+
+.navbar nav a:hover::after {
+  width: 70%;
+}
 
 /* =========================
    Floating Social Media
@@ -27,99 +122,107 @@ html {
 
 .floating-social {
   position: fixed;
-  right: 0;
   top: 260px;
+  right: 0;
   z-index: 1000;
+
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 12px;
 }
 
-.floating-social a {
-  display: block;
+/* Individual social button */
+.social-link {
+  position: relative;
+
   width: 190px;
-  margin-right: -140px;
-  padding: 16px 5px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  /* Hide the left 130px */
+  transform: translateX(130px);
+
   color: white;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font: normal 10px Arial, sans-serif;
-  text-align: center;
-  transition: 0.25s ease;
+
+  transition: transform 0.3s ease;
 }
 
-.floating-social a:hover {
-  margin-right: 0;
-}
-
-.floating-social a:nth-child(1) {
-  background: #0077b5;
-}
-
-.floating-social a:nth-child(2) {
-  background: #000;
+/* ONLY the hovered button moves */
+.social-link:hover {
+  transform: translateX(0);
 }
 
 /* =========================
-   Navigation
+   Icon
 ========================= */
 
-.navbar nav a {
-  display: inline-block;
-  padding: 22px 23px;
-  color: #f8f8f8;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.2s;
-}
+.social-icon {
+  width: 60px;
+  height: 60px;
 
-.navbar nav a:hover {
-  color: tomato;
-}
+  flex: 0 0 60px;
 
-.brand {
-  display: inline-block;
-  margin-left: 100px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.brand h1 {
+  padding: 0;
   margin: 0;
+}
+
+.social-icon svg {
+  width: 28px;
+  height: 28px;
+
+  display: block;
+  margin: 0;
+}
+
+/* =========================
+   Name
+========================= */
+
+.social-name {
+  width: 130px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 18px;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 2px;
-  color: #f8f8f8;
-  font-size: 30px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
 }
 
-.navbar nav {
-  margin-right: 100px;
+/* =========================
+   Colours
+========================= */
+
+.social-link.linkedin {
+  background: #0077b5;
 }
 
-.navbar nav a {
-  display: inline-block;
-  padding: 22px 23px;
-  color: #f8f8f8;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.2s;
+.social-link.github {
+  background: #171515;
 }
-
-.navbar nav a:hover {
-  color: tomato;
-}
-
 /* =========================
    Hero
 ========================= */
 
 .hero-section {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
   height: 100vh;
-  min-height: 600px;
   background-image:
     url('https://images.unsplash.com/photo-1476445704028-a36e0c798192?auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
@@ -131,56 +234,100 @@ html {
   content: '';
   position: absolute;
   inset: 0;
-  background: black;
-  opacity: 0.5;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.82),
+      rgba(0, 0, 0, 0.48)
+    );
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  height: 100%;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
+  padding: 100px 30px 40px;
   color: white;
   text-align: center;
 }
 
-.hero-content h1 {
-  margin: 0;
-  font-size: 100px;
-  font-weight: 600;
-}
-
-.hero-content h3 {
-  margin: 10px 0 0;
+.hero-eyebrow {
+  margin-bottom: 25px;
   color: tomato;
-  font-size: 80px;
-  line-height: 80px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
-.about-button {
+.hero-content h1 {
+  max-width: 1000px;
+  margin: 0;
+  font-size: clamp(55px, 7vw, 100px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.hero-content h1 span {
+  display: block;
+  color: tomato;
+}
+
+.hero-content p {
+  max-width: 700px;
+  margin: 30px auto 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.hero-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 50px;
-  margin-top: 80px;
-  border: 3px solid white;
-  border-radius: 50px;
-  color: white;
+  min-width: 190px;
+  height: 52px;
+  padding: 0 25px;
+  border: 2px solid white;
   text-decoration: none;
-  font-size: 23px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
-  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: 0.25s ease;
 }
 
-.about-button:hover {
+.hero-button.primary {
+  background: tomato;
+  border-color: tomato;
+  color: white;
+}
+
+.hero-button.primary:hover {
   background: white;
-  color: #333;
+  border-color: white;
+  color: #222;
+}
+
+.hero-button.secondary {
+  background: transparent;
+  color: white;
+}
+
+.hero-button.secondary:hover {
+  background: white;
+  color: #222;
 }
 
 /* =========================
@@ -194,7 +341,6 @@ html {
   padding: 100px 150px;
   background: white;
   color: #333;
-  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.5);
 }
 
 .section h1 {
@@ -215,7 +361,6 @@ footer {
   background: rgb(35, 35, 35);
   color: #bbb;
   text-align: center;
-  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================
@@ -273,7 +418,6 @@ footer {
   padding: 100px 10%;
   background: #fff;
   color: #333;
-  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.75);
 }
 
 .projects-title {
@@ -304,13 +448,12 @@ footer {
 .project-card {
   overflow: hidden;
   background: #f5f5f5;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
   transition: 0.3s;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
 }
 
 .project-image {
@@ -459,7 +602,7 @@ footer {
 
 .skill:hover .skill-icon {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
 }
 
 .skill h3 {
@@ -475,13 +618,13 @@ footer {
   line-height: 22px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 750px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
   .skills-section {
     padding: 70px 25px;
   }
@@ -489,5 +632,325 @@ footer {
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 50px;
+  }
+}
+
+/* =========================
+   RECOMMENDATIONS
+   ========================= */
+
+.recommendations-section {
+  position: relative;
+  z-index: 3;
+  min-height: 800px;
+  padding: 110px 0;
+  background: #222;
+  color: #fff;
+  overflow: hidden;
+}
+
+.recommendations-title {
+  text-align: center;
+  margin-bottom: 70px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.recommendations-title h1 {
+  margin: 0 0 15px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.recommendations-title p {
+  margin: 0;
+  color: #999;
+  font-size: 15px;
+}
+
+/* Carousel viewport */
+
+.recommendations-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 700px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* The three cards */
+
+.recommendation-card {
+  position: absolute;
+  top: 0;
+  width: 600px;
+  min-height: 500px;
+  height: auto;
+  padding: 45px 50px;
+  box-sizing: border-box;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+  font-family: 'Raleway', sans-serif;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.recommendation-card {
+  position: absolute;
+  top: 0;
+  width: 650px;
+  height: auto;
+  min-height: 500px;
+  padding: 45px 55px;
+  box-sizing: border-box;
+
+  background: #fff;
+  color: #333;
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+
+  font-family: 'Raleway', sans-serif;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.active-card {
+  scrollbar-width: thin;
+  scrollbar-color: #aaa transparent;
+}
+
+.left-card,
+.right-card {
+  overflow: hidden;
+}
+
+.active-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.active-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.active-card::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 10px;
+}
+
+.active-card::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Centre card */
+
+.active-card {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Left card */
+
+.left-card {
+  left: 50%;
+  transform: translateX(calc(-50% - 670px));
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* Right card */
+
+.right-card {
+  left: 50%;
+  transform: translateX(calc(-50% + 670px));
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* Make side cards obvious that they are interactive */
+
+.left-card,
+.right-card {
+  cursor: pointer;
+}
+
+.active-card {
+  cursor: default;
+}
+
+.left-card:hover,
+.right-card:hover {
+  opacity: 1;
+}
+
+/* Quote */
+
+.recommendation-quote {
+  color: tomato;
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 60px;
+  height: 65px;
+  margin-bottom: 25px;
+}
+
+/* Recommendation text */
+
+.recommendation-card p {
+  margin: 0;
+  color: #555;
+  font-size: 16px;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+/* Person information */
+
+.recommendation-person {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.recommendation-person strong {
+  color: #222;
+  font-size: 21px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.recommendation-person span {
+  margin-top: 7px;
+  color: #777;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.recommendation-person a {
+  width: fit-content;
+  margin-top: 12px;
+  color: tomato;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.recommendation-person a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media only screen and (max-width: 1200px) {
+
+  .recommendation-card {
+    width: 560px;
+    min-height: 650px;
+  }
+
+  .left-card {
+    transform: translateX(calc(-50% - 570px));
+  }
+
+  .right-card {
+    transform: translateX(calc(-50% + 570px));
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media only screen and (max-width: 750px) {
+
+  .recommendations-section {
+    min-height: 700px;
+    padding: 80px 20px;
+  }
+
+  .recommendations-title {
+    margin-bottom: 45px;
+  }
+
+  .recommendations-title h1 {
+    font-size: 28px;
+  }
+
+  .recommendations-title p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+
+
+.recommendation-card {
+  position: absolute;
+  top: 0;
+  width: 650px;
+  height: 760px;
+  padding: 45px 55px;
+  box-sizing: border-box;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+  font-family: 'Raleway', sans-serif;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+  .active-card {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .left-card {
+    left: 50%;
+    transform: translateX(calc(-50% - 110%));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .right-card {
+    left: 50%;
+    transform: translateX(calc(-50% + 110%));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .recommendation-quote {
+    font-size: 70px;
+  }
+
+  .recommendation-card p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recommendation-card {
+    transition: none;
   }
 }
