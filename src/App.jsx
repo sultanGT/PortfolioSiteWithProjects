@@ -1,5 +1,7 @@
 import './App.css'
-import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { useEffect, useRef, useState } from 'react';
+
 
 function RecommendationCarousel() {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -89,6 +91,24 @@ Sultan is a reliable, knowledgeable, and dedicated professional who consistently
 }
 
 function App() {
+
+  const [navbarVisible, setNavbarVisible] = useState(
+  () => window.scrollY > 100
+);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setNavbarVisible(window.scrollY > 100);
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
+  const [contactFormState, handleContactSubmit] = useForm('mzedqwwy');
   return (
     <>
 <div className="floating-social">
@@ -131,7 +151,7 @@ function App() {
   </a>
 </div>
 
-      <header className="navbar">
+      <header className={`navbar ${navbarVisible ? '' : 'navbar-hidden'}`}>
         <nav>
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>
@@ -142,33 +162,77 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="hero-section">
-<div className="hero-content">
-  <div className="hero-eyebrow">
-    SYSTEMS ENGINEER · CLOUD · DEVOPS
-  </div>
+        <section id="home" className="introduction-section">
+          <div className="introduction-content">
+            <div className="introduction-label">
+              <span className="introduction-status-dot"></span>
+              SYSTEMS ENGINEER · CLOUD · SUPPORT
+            </div>
 
-  <h1>
-    Welcome to my
-    <span> portfolio</span>
-  </h1>
+            <h1>
+              Hi, I'm Sultan.
+              <br />
+              I have a passion for supporting IT infrastructure
+              <br />
+              <span>Here's my portfolio.</span>
+            </h1>
+            <p>
+              Systems Engineer focused on cloud infrastructure,
+              monitoring and supporting production environments.
+            </p>
 
-  <p>
-    Systems Engineer focused on cloud infrastructure,
-    automation and reliable production environments.
-  </p>
+            <div className="introduction-actions">
+              <a href="#projects" className="introduction-button primary">
+                View My Projects
+              </a>
 
-  <div className="hero-actions">
-    <a href="#projects" className="hero-button primary">
-      View My Projects
-    </a>
-
-    <a href="#aboutme" className="hero-button secondary">
-      About Me
-    </a>
-  </div>
-</div>
+              <a href="#aboutme" className="introduction-button secondary">
+                About Me
+              </a>
+            </div>
+          </div>
         </section>
+
+<section id="aboutme" className="about-section">
+  <div className="about-container">
+
+    <div className="about-heading">
+      <div className="about-label">
+        <span className="about-dot"></span>
+        A LITTLE ABOUT ME
+      </div>
+
+      <h2>
+        The person behind
+        <br />
+        the infrastructure.
+      </h2>
+    </div>
+
+    <div className="about-description">
+      <p>
+        I'm a Systems Engineer with experience supporting
+        mission-critical production environments at Microsoft.
+        My work spans cloud infrastructure, Linux and Windows
+        systems, Kubernetes, monitoring and incident management.
+      </p>
+
+      <p>
+        I have experience in 1st, 2nd and 3rd line support roles and I am looking to further develop my career in supporting cloud infrastructure.
+      </p>
+
+      <a  className="about-link" 
+          href="https://www.linkedin.com/in/sultan-m-84479114b/"
+          target="_blank"
+          rel="noreferrer"      
+      >
+        Explore my experience
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
 
 <section id="projects" className="projects-section">
   <div className="projects-title">
@@ -189,20 +253,24 @@ function App() {
         <h2>Professional Portfolio Website</h2>
 
         <p>
-          A professional portfolio website rebuilt using React.js and Vite,
-          with source control through Git and deployment using GitHub Pages.
+<p>
+  A responsive portfolio website built with React.js and Vite,
+  showcasing modern frontend development and DevOps practices.
+  Features automated deployment to GitHub Pages using GitHub
+  Actions, Docker containerisation, and version control with Git.
+</p>
         </p>
 
         <div className="project-tech">
           <span>React</span>
-          <span>Vite</span>
+          <span>Docker</span>
           <span>JavaScript</span>
           <span>Git</span>
           <span>GitHub Pages</span>
         </div>
 
         <a
-          href="https://github.com/sultanGT/sultanGT.github.io"
+          href="https://github.com/sultanGT/PortfolioSiteWithProjects"
           target="_blank"
           rel="noreferrer"
           className="project-button"
@@ -213,38 +281,30 @@ function App() {
     </article>
 
 
-    <article className="project-card">
-      <div className="project-image">
-        <div className="project-placeholder">
-          DEVOPS
-        </div>
-      </div>
+<article className="project-card project-card-wip">
 
-      <div className="project-info">
-        <h2>Containerised Web Application</h2>
+  <div className="project-image">
+    <div className="project-placeholder project-placeholder-wip">
+      <span>WORK IN PROGRESS</span>
+    </div>
+  </div>
 
-        <p>
-          A DevOps project demonstrating containerisation, NGINX web serving,
-          Docker image creation and deployment workflows.
-        </p>
+  <div className="project-info">
+    <h2>WORK IN PROGRESS</h2>
 
-        <div className="project-tech">
-          <span>Docker</span>
-          <span>NGINX</span>
-          <span>Linux</span>
-          <span>Git</span>
-        </div>
+    <p>
+      WORK IN PROGRESS
+    </p>
 
-        <a
-          href="https://github.com/sultanGT"
-          target="_blank"
-          rel="noreferrer"
-          className="project-button"
-        >
-          View Projects
-        </a>
-      </div>
-    </article>
+    <div className="project-tech">
+      <span>Docker</span>
+      <span>NGINX</span>
+      <span>Linux</span>
+      <span>CI/CD</span>
+    </div>
+  </div>
+
+</article>
 
   </div>
 </section>
@@ -304,59 +364,6 @@ function App() {
   </div>
 </section>
 
-<section id="aboutme" className="about-section">
-  <div className="about-content">
-    <div className="about-text">
-      <h1>About Me</h1>
-
-      <p>
-        I am a Systems Engineer with 4+ years of experience supporting
-        enterprise infrastructure, cloud platforms and production
-        environments.
-      </p>
-
-      <p>
-        My experience includes Microsoft Azure, Kubernetes, Linux, Windows
-        Server, monitoring, incident management and infrastructure
-        operations. I have worked in production environments where
-        troubleshooting, system reliability and rapid incident response are
-        critical.
-      </p>
-
-      <p>
-        I am currently developing my skills further in DevOps, cloud
-        engineering, automation and modern infrastructure technologies.
-      </p>
-
-      <div className="about-details">
-        <div>
-          <strong>Experience</strong>
-          <span>4+ Years</span>
-        </div>
-
-        <div>
-          <strong>Specialisation</strong>
-          <span>Systems &amp; Cloud Engineering</span>
-        </div>
-
-        <div>
-          <strong>Education</strong>
-          <span>BSc (Hons) Computer Science</span>
-        </div>
-      </div>
-
-      <a
-        href="/cv.pdf"
-        className="cv-button"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Download CV
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="contact" className="contact-section">
   <div className="contact-content">
     <div className="contact-title">
@@ -366,7 +373,37 @@ function App() {
       </p>
     </div>
 
-    <form
+
+{contactFormState.succeeded ? (
+  <div className="contact-success" role="status">
+      <div className="contact-success-icon">
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="m8 12 2.5 2.5L16 9" />
+    </svg>
+  </div>
+    <h3>Message sent successfully!</h3>
+    <p>
+      Thank you for getting in touch.
+      I'll get back to you as soon as possible.
+    </p>
+  </div>
+) : (
+    
+
+    <form onSubmit={handleContactSubmit}
+  
+
       className="contact-form"
       action="mailto:sultan-malik@hotmail.co.uk"
       method="POST"
@@ -402,10 +439,31 @@ function App() {
         required
       ></textarea>
 
-      <button type="submit">
-        Send Message
+      <ValidationError
+        prefix="Email"
+        field="email"
+        errors={contactFormState.errors}
+      />
+
+      <ValidationError
+        prefix="Message"
+        field="message"
+        errors={contactFormState.errors}
+      />
+
+      {contactFormState.errors &&
+        !contactFormState.succeeded &&
+        contactFormState.errors.getFormErrors().length > 0 && (
+          <p role="alert" className="contact-error">
+            Your message could not be sent. Please try again.
+          </p>
+        )}
+
+      <button type="submit" disabled={contactFormState.submitting}>
+        {contactFormState.submitting ? 'Sending...' : 'Send Message'}
       </button>
     </form>
+)}
 
     <div className="contact-links">
       <a
