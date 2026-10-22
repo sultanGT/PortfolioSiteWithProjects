@@ -1,6 +1,14 @@
 import './App.css'
 import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useRef, useState } from 'react';
+import {
+  FaWindows,
+  FaMicrosoft
+} from "react-icons/fa";
+import { SiLinux } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
+
+
 
 
 function RecommendationCarousel() {
@@ -235,10 +243,25 @@ useEffect(() => {
 </section>
 
 <section id="projects" className="projects-section">
-  <div className="projects-title">
-    <h1>My Projects</h1>
-    <p>Projects demonstrating my technical skills and development journey</p>
-  </div>
+  <div className="projects-container">
+
+    <div className="projects-title">
+      <span className="projects-eyebrow">
+        <span className="projects-dot"></span>
+        PROJECTS
+      </span>
+
+  <h1>
+    Things I've<br />
+    been building.
+  </h1>
+
+  <p>
+    A selection of personal projects showcasing
+    my skills and technical experience.
+  </p>
+
+</div>
 
   <div className="projects-grid">
 
@@ -304,192 +327,325 @@ useEffect(() => {
     </div>
   </div>
 
-</article>
-
-  </div>
+    </article>
+  </div> {/* End projects-grid */}
+  </div> {/* End projects-container */}
 </section>
 
-
 <section id="recommendations" className="recommendations-section">
-  <div className="recommendations-title">
-    <h1>Recommendations</h1>
-    <p>What colleagues and managers say about working with me</p>
+<div className="recommendations-title">
+  <div className="recommendations-eyebrow">
+    <span className="recommendations-dot"></span>
+    RECOMMENDATIONS · FEEDBACK · EXPERIENCE
   </div>
+
+  <h2>
+    What others say<br />
+    about my work.
+  </h2>
+
+  <p>
+    Feedback from people I've worked with at Microsoft.  
+  </p>
+    <a
+  href="https://www.linkedin.com/in/sultan-m-84479114b/details/recommendations/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="recommendations-link"
+>
+  View all recommendations <span aria-hidden="true">↗</span>
+</a>
+</div>
 
   <RecommendationCarousel />
 </section>
 
+
+
 <section id="skills" className="skills-section">
-  <div className="skills-title">
-    <h1>My Expertise</h1>
-    <p>Technologies and tools I work with</p>
-  </div>
+  <div className="skills-container">
 
-  <div className="skills-grid">
-    <div className="skill">
-      <div className="skill-icon">LINUX</div>
-      <h3>Linux</h3>
-      <p>Server administration, troubleshooting and production support.</p>
-    </div>
+    {/* LEFT SIDE — Heading and description */}
+    <div className="skills-intro">
+      <span className="skills-eyebrow">
+        <span className="skills-dot"></span>
+        SKILLS & TECHNOLOGIES
+      </span>
 
-    <div className="skill">
-      <div className="skill-icon">WIN</div>
-      <h3>Windows</h3>
-      <p>Windows Server, Active Directory and enterprise troubleshooting.</p>
-    </div>
+      <h1>
+        Technologies<br />
+        I work with.
+      </h1>
 
-    <div className="skill">
-      <div className="skill-icon">AZ</div>
-      <h3>Azure</h3>
-      <p>Azure infrastructure, monitoring, AKS and cloud operations.</p>
-    </div>
-
-    <div className="skill">
-      <div className="skill-icon">K8S</div>
-      <h3>Kubernetes</h3>
-      <p>Cluster and pod investigation, troubleshooting and operations.</p>
-    </div>
-
-    <div className="skill">
-      <div className="skill-icon">DOCKER</div>
-      <h3>Docker</h3>
-      <p>Containerisation and deployment workflows.</p>
-    </div>
-
-    <div className="skill">
-      <div className="skill-icon">GIT</div>
-      <h3>Git</h3>
-      <p>Source control, GitHub workflows and project versioning.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" className="contact-section">
-  <div className="contact-content">
-    <div className="contact-title">
-      <h1>Contact Me</h1>
       <p>
-        Interested in working together or have a question? Get in touch.
+        Tools and technologies I use to build, monitor
+        and support modern infrastructure.
       </p>
     </div>
 
+    {/* RIGHT SIDE — Technology cards */}
+    <div className="skills-grid">
 
-{contactFormState.succeeded ? (
-  <div className="contact-success" role="status">
-      <div className="contact-success-icon">
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="m8 12 2.5 2.5L16 9" />
-    </svg>
-  </div>
-    <h3>Message sent successfully!</h3>
-    <p>
-      Thank you for getting in touch.
-      I'll get back to you as soon as possible.
-    </p>
-  </div>
-) : (
-    
-
-    <form onSubmit={handleContactSubmit}
-  
-
-      className="contact-form"
-      action="mailto:sultan-malik@hotmail.co.uk"
-      method="POST"
-      encType="text/plain"
-    >
-      <div className="form-row">
-        <input
-          type="text"
-          name="Name"
-          placeholder="Your Name"
-          required
+      <div className="skill">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
+          alt="Azure"
+          className="skill-icon"
         />
-
-        <input
-          type="email"
-          name="Email"
-          placeholder="Your Email"
-          required
-        />
+        <div className="skill-details">
+          <h3>Azure</h3>
+          <p>Infrastructure upgrading & patching, ALA logs, Azure Monitoring tools, RBAC & Active directory</p>
+        </div>
       </div>
 
-      <input
-        type="text"
-        name="Subject"
-        placeholder="Subject"
-        required
-      />
+      <div className="skill">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"
+          alt="Kubernetes"
+          className="skill-icon"
+        />
+        <div className="skill-details">
+          <h3>Kubernetes</h3>
+          <p>L1 support for prod clusters, ArgoCD patching, Harness CI/CD</p>
+        </div>
+      </div>
 
-      <textarea
-        name="Message"
-        placeholder="Your Message"
-        rows="7"
-        required
-      ></textarea>
+      <div className="skill">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg"
+          alt="Grafana"
+          className="skill-icon"
+        />
+        <div className="skill-details">
+          <h3>Monitoring</h3>
+          <p>Graphana monitoring for kubernetes clusters, Azure monitoring, Zenoss server management</p>
+        </div>
+      </div>
 
-      <ValidationError
-        prefix="Email"
-        field="email"
-        errors={contactFormState.errors}
-      />
+      <div className="skill">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+          alt="Linux"
+          className="skill-icon"
+        />
+        <div className="skill-details">
+          <h3>Linux</h3>
+          <p>System patching, monitoring and troubleshooting</p>
+        </div>
+      </div>
 
-      <ValidationError
-        prefix="Message"
-        field="message"
-        errors={contactFormState.errors}
-      />
+      <div className="skill">
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg"
+          alt="Windows Server"
+          className="skill-icon"
+        />
+        <div className="skill-details">
+          <h3>Windows Server</h3>
+          <p>System patching, monitoring and troubleshooting</p>
+        </div>
+      </div>
 
-      {contactFormState.errors &&
-        !contactFormState.succeeded &&
-        contactFormState.errors.getFormErrors().length > 0 && (
-          <p role="alert" className="contact-error">
-            Your message could not be sent. Please try again.
-          </p>
-        )}
+      <div className="skill">
+        <img
+          src="https://cdn.simpleicons.org/atlassian/0052CC"
+          alt="Atlassian"
+          className="skill-icon"
+        />
+        <div className="skill-details">
+          <h3>ITSM</h3>
+          <p>Jira, ServiceNow & Remedyforce</p>
+        </div>
+      </div>
 
-      <button type="submit" disabled={contactFormState.submitting}>
-        {contactFormState.submitting ? 'Sending...' : 'Send Message'}
-      </button>
-    </form>
-)}
-
-    <div className="contact-links">
-      <a
-        href="mailto:sultan-malik@hotmail.co.uk"
-      >
-        Email
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/sultan-m-84479114b/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        LinkedIn
-      </a>
-
-      <a
-        href="https://github.com/sultanGT"
-        target="_blank"
-        rel="noreferrer"
-      >
-        GitHub
-      </a>
     </div>
   </div>
 </section>
+
+
+
+
+<section id="contact" className="contact-section">
+  <div className="contact-container">
+
+    {/* LEFT COLUMN */}
+    <div className="contact-intro">
+      <span className="contact-eyebrow">
+        <span className="contact-dot"></span>
+        CONTACT ME
+      </span>
+
+      <h1>
+        Let's get<br />
+        in touch.
+      </h1>
+
+      <p>
+        Interested in discussing an
+        opportunity or looking for someone
+  with a strong technical background? Feel free to
+  get in touch.
+      </p>
+
+      <div className="contact-links">
+        <a href="mailto:sultan-malik@hotmail.co.uk">
+          Email
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/sultan-m-84479114b/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/sultanGT"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    {/* RIGHT COLUMN */}
+    <div className="contact-form-container">
+
+      {contactFormState.succeeded ? (
+        <div className="contact-success" role="status">
+          <div className="contact-success-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="m8 12 2.5 2.5L16 9" />
+            </svg>
+          </div>
+
+          <h3>Message sent successfully!</h3>
+
+          <p>
+            Thank you for getting in touch.
+            I'll get back to you as soon as possible.
+          </p>
+        </div>
+      ) : (
+        <form
+          onSubmit={handleContactSubmit}
+          className="contact-form"
+          action="mailto:sultan-malik@hotmail.co.uk"
+          method="POST"
+          encType="text/plain"
+        >
+
+          {/* NAME AND EMAIL */}
+          <div className="form-row">
+            <div className="contact-field">
+              <label htmlFor="contact-name">
+              </label>
+
+              <input
+                id="contact-name"
+                type="text"
+                name="Name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div className="contact-field">
+              <label htmlFor="contact-email">
+              </label>
+
+              <input
+                id="contact-email"
+                type="email"
+                name="Email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+          </div>
+
+          {/* SUBJECT */}
+          <div className="contact-field">
+            <label htmlFor="contact-subject">
+            </label>
+
+            <input
+              id="contact-subject"
+              type="text"
+              name="Subject"
+              placeholder="What is this about?"
+              required
+            />
+          </div>
+
+          {/* MESSAGE */}
+          <div className="contact-field">
+            <label htmlFor="contact-message">
+            </label>
+
+            <textarea
+              id="contact-message"
+              name="Message"
+              placeholder="Write your message here..."
+              rows="7"
+              required
+            ></textarea>
+          </div>
+
+          {/* EXISTING VALIDATION ERRORS */}
+          <ValidationError
+            prefix="Email"
+            field="email"
+            errors={contactFormState.errors}
+          />
+
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={contactFormState.errors}
+          />
+
+          {/* EXISTING FORM ERROR MESSAGE */}
+          {contactFormState.errors &&
+            !contactFormState.succeeded &&
+            contactFormState.errors.getFormErrors().length > 0 && (
+              <p role="alert" className="contact-error">
+                Your message could not be sent.
+                Please try again.
+              </p>
+            )}
+
+          {/* SUBMIT BUTTON */}
+          <button
+            type="submit"
+            className="contact-submit-button"
+            disabled={contactFormState.submitting}
+          >
+            {contactFormState.submitting
+              ? "Sending..."
+              : "Send Message"}
+          </button>
+
+        </form>
+      )}
+
+    </div>
+  </div>
+</section>
+
       </main>
 
       <footer>
