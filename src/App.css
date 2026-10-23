@@ -1461,6 +1461,292 @@ a {
   }
 }
 
+.navbar-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.navbar-top span {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.navbar-top:hover span {
+  transform: translateY(-4px);
+}
+
+
+/* =========================
+   Work Experience
+========================= */
+
+.experience-section {
+  background: #fff;
+  border-top: 1px solid #d1d5db;
+  padding: 70px 5%;
+}
+
+.experience-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 48% minmax(0, 1fr);
+  gap: 5%;
+  align-items: start;
+}
+
+/* Left column */
+
+.experience-left {
+  min-width: 0;
+}
+
+.experience-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.experience-eyebrow-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #1684bd;
+  flex-shrink: 0;
+}
+
+.experience-left h2 {
+  color: #111827;
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 650;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.experience-intro {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.experience-left-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 32px 0;
+}
+
+.experience-qualifications-heading {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.experience-qualifications {
+  border: 1px solid #e2e8f0;
+  border-radius: 17px;
+  padding: 0 16px;
+}
+
+.experience-qualification {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 25px 0;
+}
+
+.experience-qualification > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience-qualification h4 {
+  margin-top: 0;
+}
+
+.experience-qualification + .experience-qualification {
+  border-top: 1px solid #dbe3eb;
+}
+
+.experience-qualification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: #eff6ff;
+  color: #1684bd;
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+.experience-qualification h4 {
+  margin: 2px 0 8px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.experience-qualification p {
+  margin: 0 0 5px;
+  color: #475569;
+  font-size: 15px;
+}
+
+.experience-qualification span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.experience-explore {
+  display: inline-block;
+  margin-top: 28px;
+  color: #1684bd;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.experience-explore:hover {
+  text-decoration: underline;
+}
+
+/* Right column - timeline */
+
+.experience-timeline {
+  position: relative;
+  min-width: 0;
+  padding-left: 32px;
+  scroll-margin-top: 30px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 18px;
+  left: 7px;
+  width: 3px;
+  background: #dbe3eb;
+}
+
+.experience-timeline-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.experience-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience-timeline-dot {
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #1684bd;
+  z-index: 1;
+}
+
+.experience-timeline-dot-muted {
+  background: #cbd5e1;
+}
+
+.experience-date {
+  display: block;
+  color: #1684bd;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.experience-timeline-content h3 {
+  color: #111827;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 14px;
+}
+
+.experience-timeline-content h4 {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.experience-timeline-content p {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.experience-tags span {
+  background: #f1f5f9;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 12px;
+  padding: 5px 12px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .experience-container {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .experience-section {
+    padding: 55px 5%;
+  }
+
+  .experience-timeline {
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-qualification h4 {
+    font-size: 16px;
+  }
+
+  .experience-qualification {
+    gap: 12px;
+  }
+
+  .experience-timeline-content h3 {
+    font-size: 19px;
+  }
+
+  .experience-timeline-content p {
+    font-size: 15px;
+  }
+}
+
+.experience-udemy-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
 
 
 /* =========================

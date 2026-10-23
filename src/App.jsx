@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import { SiLinux } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
+import { Award, BookOpen, GraduationCap } from "lucide-react";
+
 
 
 
@@ -14,6 +16,8 @@ import { VscAzure } from "react-icons/vsc";
 function RecommendationCarousel() {
   const [activeIndex, setActiveIndex] = useState(1);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  
+
 
   const recommendations = [
     {
@@ -98,6 +102,49 @@ Sultan is a reliable, knowledgeable, and dedicated professional who consistently
   );
 }
 
+const careerTimeline = [
+  {
+    date: "October 2026",
+    title: "Cloud Certification & Portfolio Development",
+    organisation: "Personal Development",
+    description:
+      "Earned Microsoft Azure Fundamentals (AZ-900) certification and developed a React/Vite portfolio website hosted on GitHub Pages.",
+    technologies: ["AZ-900", "React", "Vite", "GitHub Pages"],
+  },
+  {
+    date: "2025 – 2026",
+    title: "Professional Development & Career Transition",
+    organisation: "Independent Learning",
+    description:
+      "Following redundancy, spent approximately 12 months pursuing technical opportunities and interviews, completing CKA udemy course training to maintain Linux and develop new skills through lab environments.",
+    technologies: ["Kubernetes", "CKA Training", "Linux", "Vagrant"],
+  },
+  {
+    date: "January 2022 – November 2024",
+    title: "System Engineer",
+    organisation: "Microsoft / Nuance",
+    description:
+      "Supported 1,000+ Windows/Linux servers across enterprise environments, resolved 200+ critical incidents, led 100+ deployments and patching sessions, and coordinated major incident bridges with DevOps teams and stakeholders.",
+    technologies: ["Azure AKS", "Linux", "Kubernetes", "Grafana", "PagerDuty"],
+  },
+  {
+    date: "2019 – 2021",
+    title: "Desktop Engineer",
+    organisation: "City, University of London",
+    description:
+      "Delivered technical support to students and staff, managed SCCM imaging, resolved ServiceNow tickets, configured VPN access and troubleshot hardware and software issues.",
+    technologies: ["SCCM", "ServiceNow", "VPN", "Windows"],
+  },
+  {
+    date: "2019",
+    title: "IT Support",
+    organisation: "PC World",
+    description:
+      "Configured customer devices, installed software, performed data backups and transfers, and resolved hardware and software issues.",
+    technologies: ["Hardware", "Windows", "macOS"],
+  },
+];
+
 function App() {
 
   const [navbarVisible, setNavbarVisible] = useState(
@@ -160,13 +207,19 @@ useEffect(() => {
 </div>
 
       <header className={`navbar ${navbarVisible ? '' : 'navbar-hidden'}`}>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#aboutme">About me</a>
-          <a href="#contact">Contact</a>
-        </nav>
+
+<nav className="navbar-links">
+  <a href="#home" className="navbar-top">
+  <span>↑</span>
+</a>
+  <a href="#aboutme">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#recommendations">Recommendations</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
       </header>
 
       <main>
@@ -462,6 +515,105 @@ useEffect(() => {
   </div>
 </section>
 
+
+<section id="experience" className="experience-section">
+  <div className="experience-container">
+
+    {/* LEFT COLUMN */}
+    <div className="experience-left">
+      <div className="experience-eyebrow">
+        <span className="experience-eyebrow-dot" />
+        CAREER JOURNEY
+      </div>
+
+      <h2>Experience &amp; professional growth.</h2>
+
+      <p className="experience-intro">
+        From supporting enterprise infrastructure to developing
+        expertise in cloud technologies, Kubernetes and DevOps.
+      </p>
+
+      <div className="experience-left-divider" />
+
+      <h3 className="experience-qualifications-heading">
+        EDUCATION, CERTIFICATIONS &amp; TRAINING
+      </h3>
+
+      <div className="experience-qualifications">
+
+        <div className="experience-qualification">
+          <div className="experience-qualification-icon">
+  <Award size={25} strokeWidth={2} />
+</div>
+          <div>
+            <h4>Microsoft Azure Fundamentals</h4>
+            <p>Microsoft Certified · AZ-900</p>
+            <span>15 October 2026</span>
+          </div>
+        </div>
+
+        <div className="experience-qualification">
+          <div className="experience-qualification-icon">
+            <div className="experience-qualification-icon">
+  <img
+    src="https://cdn.simpleicons.org/udemy/A435F0"
+    alt="Udemy"
+    className="experience-udemy-logo"
+  />
+</div>
+  <BookOpen size={25} strokeWidth={2} />
+</div>
+          <div>
+            <h4>Certified Kubernetes Administrator</h4>
+            <p>CKA Udemy Course</p>
+            <span>Course completed · 2026</span>
+          </div>
+        </div>
+
+        <div className="experience-qualification">
+          <div className="experience-qualification-icon">🎓</div>
+          <div>
+            <h4>BSc (Hons) Computer Science</h4>
+            <p>City, University of London</p>
+            <span>2:1 · Placement Year · July 2021</span>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="#experience-timeline" className="experience-explore">
+        Explore my experience ↗
+      </a>
+    </div>
+
+    {/* RIGHT COLUMN */}
+    <div id="experience-timeline" className="experience-timeline">
+      {careerTimeline.map((item, index) => (
+        <article className="experience-timeline-item" key={index}>
+          <span
+            className={`experience-timeline-dot ${
+              index >= 3 ? "experience-timeline-dot-muted" : ""
+            }`}
+          />
+
+          <div className="experience-timeline-content">
+            <span className="experience-date">{item.date}</span>
+            <h3>{item.title}</h3>
+            <h4>{item.organisation}</h4>
+            <p>{item.description}</p>
+
+            <div className="experience-tags">
+              {item.technologies.map((technology) => (
+                <span key={technology}>{technology}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
 
 
 
