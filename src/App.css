@@ -606,6 +606,85 @@ a {
   line-height: 1.7;
 }
 
+
+/* =========================
+   Project Video Previews
+========================= */
+
+.project-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.project-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-card {
+  border-radius: 8px 8px 16px 16px;
+  overflow: hidden;
+}
+
+.project-video {
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.project-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 768px) {
+  .project-video {
+    height: 240px;
+  }
+}
+
+/* =========================
+   Project Status Badges
+========================= */
+
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 16px;
+}
+
+.project-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Completed */
+.project-status-complete {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+/* Work in Progress */
+.project-status-wip {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+
 /* =========================
    TECHNOLOGY BADGES
 ========================= */

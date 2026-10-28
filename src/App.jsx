@@ -243,12 +243,11 @@ useEffect(() => {
             </p>
 
             <div className="introduction-actions">
-              <a href="#projects" className="introduction-button primary">
-                View My Projects
-              </a>
-
               <a href="#aboutme" className="introduction-button secondary">
                 About Me
+              </a>
+              <a href="#projects" className="introduction-button primary">
+                View My Projects
               </a>
             </div>
           </div>
@@ -295,95 +294,119 @@ useEffect(() => {
   </div>
 </section>
 
+
 <section id="projects" className="projects-section">
   <div className="projects-container">
-
     <div className="projects-title">
       <span className="projects-eyebrow">
         <span className="projects-dot"></span>
         PROJECTS
       </span>
 
-  <h1>
-    Things I've<br />
-    been building.
-  </h1>
+      <h1>
+        Things I've<br />
+        been building.
+      </h1>
 
-  <p>
-    A selection of personal projects showcasing
-    my skills and technical experience.
-  </p>
+      <p>
+        A selection of personal projects showcasing
+        my skills and technical experience.
+      </p>
+    </div>
 
+    <div className="projects-grid">
+
+      {/* Portfolio Website */}
+      <article className="project-card">
+        <div className="project-image project-video">
+        <video
+          controls
+          playsInline
+          preload="metadata"
+          src={`${import.meta.env.BASE_URL}videos/portfolio-demo.mp4`}
+        />
+        </div>
+
+        <div className="project-info">
+          <span className="project-status project-status-complete">
+            Completed
+          </span>
+
+          <h2>Professional Portfolio Website</h2>
+
+          <p>
+            A responsive portfolio website built with React.js and Vite,
+            showcasing modern frontend development and DevOps practices.
+            Features automated deployment to GitHub Pages using GitHub
+            Actions, Docker containerisation, and version control with Git.
+          </p>
+
+          <div className="project-tech">
+            <span>React</span>
+            <span>Docker</span>
+            <span>JavaScript</span>
+            <span>Git</span>
+            <span>GitHub Pages</span>
+          </div>
+
+          <a
+            href="https://github.com/sultanGT/PortfolioSiteWithProjects"
+            target="_blank"
+            rel="noreferrer"
+            className="project-button"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </article>
+
+      {/* Linux Infrastructure Lab */}
+      <article className="project-card project-card-wip">
+<div className="project-image project-video">
+  <video
+    controls
+    playsInline
+    preload="metadata"
+    src={`${import.meta.env.BASE_URL}videos/linux-demo.mp4`}
+  />
 </div>
 
-  <div className="projects-grid">
+        <div className="project-info">
+          <span className="project-status project-status-wip">
+            Work in Progress
+          </span>
 
-    <article className="project-card">
-      <div className="project-image">
-        <div className="project-placeholder">
-          REACT
+          <h2>Linux Infrastructure Monitoring & Automation Lab</h2>
+
+          <p>
+            Building an Ubuntu Server infrastructure lab featuring Nginx
+            web hosting, Bash-based health monitoring, automated systemd
+            checks, incident simulation and logging.
+          </p>
+
+          <div className="project-tech">
+            <span>Ubuntu Server</span>
+            <span>Linux</span>
+            <span>Bash Scripting</span>
+            <span>Systemd Automation</span>
+            <span>VirtualBox</span>
+          </div>
+
+          <a
+            href="https://github.com/sultanGT/linux-infrastructure-lab"
+            target="_blank"
+            rel="noreferrer"
+            className="project-button"
+          >
+            View on GitHub
+          </a>
         </div>
-      </div>
+      </article>
 
-      <div className="project-info">
-        <h2>Professional Portfolio Website</h2>
-
-        <p>
-<p>
-  A responsive portfolio website built with React.js and Vite,
-  showcasing modern frontend development and DevOps practices.
-  Features automated deployment to GitHub Pages using GitHub
-  Actions, Docker containerisation, and version control with Git.
-</p>
-        </p>
-
-        <div className="project-tech">
-          <span>React</span>
-          <span>Docker</span>
-          <span>JavaScript</span>
-          <span>Git</span>
-          <span>GitHub Pages</span>
-        </div>
-
-        <a
-          href="https://github.com/sultanGT/PortfolioSiteWithProjects"
-          target="_blank"
-          rel="noreferrer"
-          className="project-button"
-        >
-          View on GitHub
-        </a>
-      </div>
-    </article>
-
-
-<article className="project-card project-card-wip">
-
-  <div className="project-image">
-    <div className="project-placeholder project-placeholder-wip">
-      <span>WORK IN PROGRESS</span>
     </div>
   </div>
-
-  <div className="project-info">
-    <h2>WORK IN PROGRESS</h2>
-
-    <p>
-      WORK IN PROGRESS
-    </p>
-
-    <div className="project-tech">
-      <span>Docker</span>
-      <span>NGINX</span>
-      <span>Linux</span>
-      <span>CI/CD</span>
-    </div>
-  </div>
-
-    </article>
-  </div> {/* End projects-grid */}
-  </div> {/* End projects-container */}
 </section>
+
 
 <section id="recommendations" className="recommendations-section">
 <div className="recommendations-title">
