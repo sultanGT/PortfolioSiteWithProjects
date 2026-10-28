@@ -376,10 +376,10 @@ useEffect(() => {
             Work in Progress
           </span>
 
-          <h2>Linux Infrastructure Monitoring & Automation Lab</h2>
+          <h2>Linux Server Monitoring & Automation</h2>
 
           <p>
-            Building an Ubuntu Server infrastructure lab featuring Nginx
+            Building an Ubuntu Linux Server featuring Nginx
             web hosting, Bash-based health monitoring, automated systemd
             checks, incident simulation and logging.
           </p>
